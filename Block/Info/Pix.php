@@ -65,7 +65,8 @@ class Pix extends \Magento\Payment\Block\Info
         $data = [];
         foreach ($this->keys as $key => $label) {
             if ($this->getInfo()->getAdditionalInformation($key)) {
-                $data[(string) __($label)] = $this->getInfo()->getAdditionalInformation($key);
+                $value = trim($this->getInfo()->getAdditionalInformation($key));
+                $data[(string) __($label)] = 'payment.message' === $key ? (string) __($value) : $value;
             }
         }
         if ($this->_appState->getAreaCode() === \Magento\Backend\App\Area\FrontNameResolver::AREA_CODE) {
