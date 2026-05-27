@@ -45,7 +45,7 @@ class Cc extends \Magento\Payment\Block\Info\Cc
         if ($this->_appState->getAreaCode() === \Magento\Backend\App\Area\FrontNameResolver::AREA_CODE) {
             foreach ($this->adminKeys as $key => $label) {
                 if ($this->getInfo()->getAdditionalInformation($key)) {
-                    $value = $this->getInfo()->getAdditionalInformation($key);
+                    $value = trim($this->getInfo()->getAdditionalInformation($key));
                     $data[(string) __($label)] = 'payment.message' === $key ? (string) __($value) : $value;
 
                     if ('payment.message' === $key) {
