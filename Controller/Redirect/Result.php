@@ -159,7 +159,7 @@ class Result extends \Magento\Framework\App\Action\Action implements CsrfAwareAc
 
             $this->_logger->debug('Resolved redirect payment status', ['order' => $orderId, 'payment_status' => $paymentStatus, 'payment_method' => $paymentMethod]);
 
-            if ($paymentStatus !== null && in_array($paymentStatus, ['5', '8'])) {
+            if ($paymentStatus !== null && in_array($paymentStatus, ['4', '5', '8'])) {
                 return $this->redirectToResultSuccess();
             }
 
